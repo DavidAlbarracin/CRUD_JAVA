@@ -5,9 +5,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         JugadorManager manager = new JugadorManager();
         
+        // Bucle infinito para mostrar el menú y gestionar la interacción del usuario
         while (true) {
             try {
-                // Mostrar menú
+                // Mostrar opciones del menú
                 System.out.println("\n=== SISTEMA DE GESTIÓN DE JUGADORES ===");
                 System.out.println("1. Agregar jugador");
                 System.out.println("2. Buscar jugador");
@@ -27,7 +28,7 @@ public class Main {
                 
                 switch (opcion) {
                     case 1:
-                        // Agregar jugador
+                        // Agregar jugador: solicita los datos y llama al método correspondiente
                         System.out.print("Ingrese ID del jugador: ");
                         int id = Integer.parseInt(scanner.nextLine().trim());
                         
@@ -50,7 +51,7 @@ public class Main {
                         break;
                     
                     case 2:
-                        // Buscar jugador
+                        // Buscar jugador: solicita el ID y muestra el jugador si se encuentra
                         System.out.print("Ingrese el ID del jugador a buscar: ");
                         int idBuscar = Integer.parseInt(scanner.nextLine().trim());
                         Jugador jugador = manager.buscarJugador(idBuscar);
@@ -62,12 +63,12 @@ public class Main {
                         break;
                     
                     case 3:
-                        // Editar jugador (esta funcionalidad se puede implementar más tarde)
+                        // Editar jugador: muestra un mensaje de funcionalidad pendiente
                         System.out.println("Funcionalidad de edición no implementada.");
                         break;
                     
                     case 4:
-                        // Eliminar jugador
+                        // Eliminar jugador: solicita el ID y elimina el jugador si existe
                         System.out.print("Ingrese el ID del jugador a eliminar: ");
                         int idEliminar = Integer.parseInt(scanner.nextLine().trim());
                         if (!manager.eliminarJugador(idEliminar)) {
@@ -76,13 +77,13 @@ public class Main {
                         break;
                     
                     case 5:
-                        // Listar jugadores
+                        // Listar jugadores: imprime la lista de jugadores
                         System.out.println("\nLista de jugadores:");
                         manager.listarJugadores();
                         break;
                     
                     case 6:
-                        // Salir
+                        // Salir: cierra el escáner y termina el programa
                         System.out.println("\n¡Gracias por usar el sistema!");
                         scanner.close();
                         return;

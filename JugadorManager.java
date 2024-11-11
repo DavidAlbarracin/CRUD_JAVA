@@ -2,30 +2,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JugadorManager {
-    private List<Jugador> jugadores;  // Lista para almacenar los jugadores
+    private List<Jugador> jugadores; // Lista para almacenar los objetos de tipo Jugador
     
+    // Constructor que inicializa la lista de jugadores
     public JugadorManager() {
         jugadores = new ArrayList<>();
     }
 
-    // Método para agregar un jugador
+    // Método para agregar un nuevo jugador a la lista
     public void agregarJugador(int id, String nombre, int edad, String posicion, String equipo, double salario) {
         Jugador nuevoJugador = new Jugador(id, nombre, edad, posicion, equipo, salario);
         jugadores.add(nuevoJugador);
         System.out.println("Jugador agregado: " + nuevoJugador);
     }
 
-    // Método para buscar un jugador por ID
+    // Método para buscar un jugador por su ID
     public Jugador buscarJugador(int id) {
         for (Jugador jugador : jugadores) {
             if (jugador.getId() == id) {
-                return jugador;
+                return jugador; // Retorna el jugador si se encuentra
             }
         }
-        return null;  // Si no se encuentra el jugador
+        return null; // Retorna null si no se encuentra
     }
 
-    // Método para listar todos los jugadores
+    // Método para imprimir la lista de todos los jugadores
     public void listarJugadores() {
         if (jugadores.isEmpty()) {
             System.out.println("No hay jugadores registrados.");
@@ -36,7 +37,7 @@ public class JugadorManager {
         }
     }
 
-    // Método para eliminar un jugador
+    // Método para eliminar un jugador de la lista
     public boolean eliminarJugador(int id) {
         Jugador jugador = buscarJugador(id);
         if (jugador != null) {
@@ -47,6 +48,4 @@ public class JugadorManager {
         System.out.println("Jugador no encontrado.");
         return false;
     }
-
-    // Métodos adicionales para editar jugador o realizar otras operaciones podrían agregarse aquí
 }
